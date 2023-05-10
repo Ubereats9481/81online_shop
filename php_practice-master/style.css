@@ -1,0 +1,23 @@
+body{
+    font-family: 微軟正黑體;
+}
+
+.container{
+    background-color: aqua;
+}
+
+#shop_head{
+    margin-bottom: 15px;
+}
+
+#shop_main{
+    min-height: 200px;
+}
+
+#shop_foot{
+    background-color: red;
+    color: #fff;
+    padding: 30px;
+    line-height: 1.5;
+    margin: 15px 0px;
+}

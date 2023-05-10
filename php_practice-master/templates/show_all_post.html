@@ -1,0 +1,19 @@
+<div class="row">
+    {foreach from=$all_post item=post}
+    {if $post.post_hide==0}
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <a href="index.php?op=display&show={$post.post_number}"><img src="{$post.picture}" alt="{$post.post_title}"></a>
+                <div class="caption">
+                    <div style="height: 60px;">
+                        <h3><a href="index.php?op=display&show={$post.post_number}">{$post.post_title}</a></h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">熱度: {$post.post_hot}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {/if}
+    {/foreach}
+</div>
