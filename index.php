@@ -44,7 +44,7 @@
 	function show_all_list($pg){
 		global $smarty, $mysqli;
 		include_once "plugin/PageBar.php";
-		$sql = "SELECT * FROM `post` ORDER BY `post_time` desc";
+		$sql = "SELECT * FROM `post` WHERE `post_hide` = 0 ORDER BY `post_time` desc";
 		$PageBar = getPageBar($sql, 2, 5);
 		$bar = $PageBar['bar'];
 		$sql = $PageBar['sql'];

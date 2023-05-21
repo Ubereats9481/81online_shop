@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-29 21:24:37
-  from '/var/www/html/fakemd/templates/login.html' */
+/* Smarty version 3.1.34-dev-7, created on 2023-05-21 04:54:59
+  from 'C:\Users\allen\Documents\Github\81online_shop\templates\login.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e80a195368bf9_37460333',
+  'unifunc' => 'content_6469a4230efb69_21296777',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '4ef20f57d0ca3c10f234a8f3b8c31d89ad91972b' => 
+    '0df35b3b4e453b26c658031dc293389eafc6e1be' => 
     array (
-      0 => '/var/www/html/fakemd/templates/login.html',
-      1 => 1581427911,
+      0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\login.html',
+      1 => 1683694117,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e80a195368bf9_37460333 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6469a4230efb69_21296777 (Smarty_Internal_Template $_smarty_tpl) {
 ?><h1>登入</h1>
 
     <form action="user.php" method="POST" class="form-horizontal" id="login_form" role="form">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-29 22:29:14
-  from '/var/www/html/fakemd/templates/index.html' */
+/* Smarty version 3.1.34-dev-7, created on 2023-05-21 05:09:01
+  from 'C:\Users\allen\Documents\Github\81online_shop\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e80b0ba634843_68108069',
+  'unifunc' => 'content_6469a76d60e134_60599403',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '4f30392a2b85ea7f50c3e94768097262ab3c81d4' => 
+    'b3ae00b8f1f55c260bcabbbe1d68d22a774e4cca' => 
     array (
-      0 => '/var/www/html/fakemd/templates/index.html',
-      1 => 1585492153,
+      0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\index.html',
+      1 => 1684645736,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:index_side.html' => 1,
   ),
 ),false)) {
-function content_5e80b0ba634843_68108069 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6469a76d60e134_60599403 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 
 <head>
@@ -79,7 +79,7 @@ function content_5e80b0ba634843_68108069 (Smarty_Internal_Template $_smarty_tpl)
 ?>
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "list" && isset($_smarty_tpl->tpl_vars['isuser']->value)) {?>
 				<a href="tool.php?op=post" class="btn btn-block btn-primary">發布內容</a>
-				<a href="tool.php?op=edit" class="btn btn-block btn-success">編輯內容</a>
+				<!-- <a href="tool.php?op=edit" class="btn btn-block btn-success">編輯內容</a> -->
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "display") {?>
 				<?php $_smarty_tpl->_subTemplateRender('file:show_one_post.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-04 17:26:05
-  from '/var/www/html/templates/show_all_post.html' */
+/* Smarty version 3.1.34-dev-7, created on 2023-05-21 04:54:55
+  from 'C:\Users\allen\Documents\Github\81online_shop\templates\show_all_post.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e3938ad5c5407_49505586',
+  'unifunc' => 'content_6469a41f24e0a4_08478154',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '0eccc35d9207d5c7dd2d511484be850f11e38b4f' => 
+    'e03ff2148d12094f3fd4f1dca4bee702faf482f9' => 
     array (
-      0 => '/var/www/html/templates/show_all_post.html',
-      1 => 1580803902,
+      0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\show_all_post.html',
+      1 => 1683694117,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e3938ad5c5407_49505586 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6469a41f24e0a4_08478154 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="row">
     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['all_post']->value, 'post');

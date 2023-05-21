@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-29 21:25:32
-  from '/var/www/html/fakemd/templates/tool_edit.html' */
+/* Smarty version 3.1.34-dev-7, created on 2023-05-21 04:55:22
+  from 'C:\Users\allen\Documents\Github\81online_shop\templates\tool_edit.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e80a1cca14c28_18536526',
+  'unifunc' => 'content_6469a43ac3c624_73151626',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'b4ae00b7b915a5408f2b524efb92e7a01992c120' => 
+    '97c59f02f21de0706b70df771497bac0d721c479' => 
     array (
-      0 => '/var/www/html/fakemd/templates/tool_edit.html',
-      1 => 1580808464,
+      0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\tool_edit.html',
+      1 => 1683694117,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e80a1cca14c28_18536526 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6469a43ac3c624_73151626 (Smarty_Internal_Template $_smarty_tpl) {
 ?><h1>編輯內容</h1>
 <?php echo '<script'; ?>
  src="ckeditor4-major/ckeditor.js"><?php echo '</script'; ?>

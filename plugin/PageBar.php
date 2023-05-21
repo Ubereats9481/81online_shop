@@ -51,7 +51,7 @@ class PageBar
     // 總共分成幾頁？
     public $pTotal;
     // 每一層最多有幾個頁數選項可供選擇，如：3 = {[1][2][3]}
-    public $pLimit;
+    public $pLimit = 3;
     // 要使用的 URL 頁數參數名？
     public $url_page = "g2p";
     // 會使用到的 URL 變數名，給 process_query() 過濾用的。
