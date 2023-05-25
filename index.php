@@ -20,21 +20,6 @@
 	}
 
 	require("footer.php");
-	
-	function login(){
-		global $admin_array;
-		$user_id = filter_var($_REQUEST['user_id'],FILTER_SANITIZE_SPECIAL_CHARS);
-		if (in_array($user_id,$admin_array)) {
-			$_SESSION['user_id'] = $user_id;
-		}
-		else {
-			die("Wrong account");
-		}
-	}
-
-	function logout() {
-		unset($_SESSION['user_id']);
-	}
 
 	// function show_all_list($pg){
 	// 	global $smarty, $mysqli;

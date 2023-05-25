@@ -13,6 +13,7 @@ if (isset($_SESSION['user_id'])){
         $isadmin = true;
     }
     $smarty->assign('user_id',$_SESSION['user_id']);
+    $smarty->assign('user_rank', $_SESSION['user_rank']);
 }
 $smarty->assign('isuser',$isuser);
 $smarty->assign('isadmin',$isadmin);

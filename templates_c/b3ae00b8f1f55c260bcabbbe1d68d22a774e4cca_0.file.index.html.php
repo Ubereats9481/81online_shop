@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-25 07:12:14
+/* Smarty version 3.1.34-dev-7, created on 2023-05-25 07:31:06
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_646f0a4eade151_12161394',
+  'unifunc' => 'content_646f0eba41b4d4_43202713',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b3ae00b8f1f55c260bcabbbe1d68d22a774e4cca' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\index.html',
-      1 => 1684998731,
+      1 => 1684999645,
       2 => 'file',
     ),
   ),
@@ -32,7 +32,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:chat.html' => 1,
   ),
 ),false)) {
-function content_646f0a4eade151_12161394 (Smarty_Internal_Template $_smarty_tpl) {
+function content_646f0eba41b4d4_43202713 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 
 <head>
@@ -104,8 +104,8 @@ function content_646f0a4eade151_12161394 (Smarty_Internal_Template $_smarty_tpl)
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "edit" && isset($_smarty_tpl->tpl_vars['isuser']->value)) {?>
 					<?php $_smarty_tpl->_subTemplateRender("file:tool_edit.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "list" && isset($_smarty_tpl->tpl_vars['isuser']->value)) {?>
-					<a href="tool.php?op=post" class="btn btn-block btn-primary">發布內容</a>
+				<!-- <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "list" && isset($_smarty_tpl->tpl_vars['isuser']->value)) {?>
+					<a href="tool.php?op=post" class="btn btn-block btn-primary">發布內容</a> -->
 					<!-- <a href="tool.php?op=edit" class="btn btn-block btn-success">編輯內容</a> -->
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "display") {?>
 					<?php $_smarty_tpl->_subTemplateRender('file:show_one_post.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

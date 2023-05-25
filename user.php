@@ -41,7 +41,7 @@
 	require("footer.php");
 	
 	function loginout(){
-		global $admin_array,$mysqli,$msg;
+		global $admin_array,$mysqli,$msg,$smarty;
 		$user_id = filter_var($_REQUEST['user_id'],FILTER_SANITIZE_SPECIAL_CHARS);
 		if (!empty($user_id)) {
 			$sql = "SELECT * FROM `user` WHERE `user_id`='{$user_id}'";
@@ -50,6 +50,7 @@
 			if (password_verify($_POST['user_pw'], $user['user_pw'])){
 				$_SESSION['user_id'] = $user_id;
 				$_SESSION['user_number'] = $user['user_number'];
+				$_SESSION['user_rank'] = $user['Rank'];
 				header("location:index.php?op=home");
 				exit;
 			}
@@ -67,37 +68,7 @@
 	function logout() {
 		unset($_SESSION['user_id']);
 		unset($_SESSION['user_number']);
-	}
-
-	function show_all_list($pg){
-		global $smarty, $mysqli;
-		include_once "plugin/PageBar.php";
-		$sql = "SELECT * FROM `post` ORDER BY `post_time` desc";
-		$PageBar = getPageBar($sql, 2, 5);
-		$bar = $PageBar['bar'];
-		$sql = $PageBar['sql'];
-		$total = $PageBar['total'];
-		$result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
-		$i = 0;
-		while ($po = $result->fetch_assoc()) {
-			$all_post[$i] = $po;
-			$all_post[$i]['picture'] = get_pic($po['post_number'],'small');
-			$i++;
-		}
-		$smarty->assign('all_post',$all_post);
-		$smarty->assign('total', $total);
-		$smarty->assign('bar', $bar);
-	}
-
-	function show_one_list($shownum){
-		global $smarty, $mysqli;
-		$sql = "UPDATE post set `post_hot`=`post_hot`+1 WHERE `post_number`={$shownum}";
-        $mysqli->query($sql);
-		$sql = "SELECT * FROM `post` WHERE `post_number`='{$shownum}'";
-		$result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
-		$post = $result->fetch_assoc();
-		$post['picture'] = get_pic($post['post_number'],'big');
-		$smarty->assign('post',$post);
+		unset($_SESSION['user_rank']);
 	}
 
 	function registered(){

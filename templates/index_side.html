@@ -2,11 +2,12 @@
 	<div  id ="panel-heading" class="panel-heading"></div>
 	<div id = "panel-body" class="panel-body">
 		{if $isuser}
-			<div class='alert alert-success'>Welcome! {$user_id}</div>
-			<div class='alert alert-info'>
+			<div class='alert alert-success text-center' id="welcome_user_info">Welcome! {$user_id}<br></div>
+			<p id="user_rank_info" hidden>{$user_rank}</p>
 			<a href="user.php?op=logout" class="btn btn-block btn-danger">登出</a>
 		{/if}
 		{if !$isuser}
+			<div class='alert alert-warning'>登入以使用更多功能</div>
 			<a href="user.php?op=login" class="btn btn-block btn-info">登入</a>
 			<a href="user.php?op=registered" class="btn btn-block btn-success">註冊</a>
 		{/if}
@@ -16,3 +17,20 @@
 		
 	</div>
 </div>
+<script>
+	let info = document.getElementById("welcome_user_info");
+	switch (document.getElementById('user_rank_info')){
+		case '1':
+			info.innerHTML += "銅級會員";
+			break;
+		case '2':
+			info.innerHTML += '銀級會員';
+			break;
+		case '3':
+			info.innerHTML += '金級會員';
+			break;
+		default:
+			info.innerHTML += "銅級會員";
+			break;
+	}
+</script>
