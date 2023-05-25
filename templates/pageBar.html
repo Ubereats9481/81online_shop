@@ -1,0 +1,60 @@
+<p id="showPageNum">頁數: </p>
+<div class="row">
+    <div class="col-md-12">
+      <div class="text-center">
+        <nav>
+          <ul class="pagination">
+            <li class="page-link"><a id="goFirstPage" href="#" onclick="changePage('first')">«</a></li>
+            <li class="page-link"><a id="goPreviousPage" href="#" onclick="changePage('pre')">‹</a></li>
+            <li class="page-link"><a id="goNextPage" href="#" onclick="changePage('next')">›</a></li>
+            <li class="page-link"><a id="goLastPage" href="#" onclick="changePage('last')">»</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</div>
+
+<script>
+    let page = document.getElementById("showPageNum");
+    let pageNum = 1;
+    let total = {$total};
+    let totalPage = Math.ceil(total / 9);
+    page.innerHTML = "頁數: " + pageNum + " / " + totalPage;
+    applyPage();
+    function changePage(opt){
+        switch(opt){
+            case "first":
+                pageNum = 1;
+                break;
+            case "pre":
+                if(pageNum > 1){
+                    pageNum--;
+                }
+                break;
+            case "next":
+                if(pageNum < totalPage){
+                    pageNum++;
+                }
+                break;
+            case "last":
+                pageNum = totalPage;
+                break;
+        }
+        applyPage();
+    }
+
+    function applyPage(){
+        let all_prod = document.getElementsByClassName('showProduct');
+        for (let i = 0; i < all_prod.length; i++) {
+            if (i >= (pageNum - 1) * 9 && i < pageNum * 9){
+                all_prod[i].style.display = "";
+            }
+            else{
+                all_prod[i].style.display = "none";
+            }
+            
+        }
+        page.innerHTML = "頁數: " + pageNum + " / " + totalPage;
+    }
+
+</script>

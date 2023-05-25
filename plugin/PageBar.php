@@ -1,13 +1,13 @@
 <?php
-function getPageBar($sql = "", $show_num = 20, $page_list = 10, $to_page = "", $url_other = "")
+function getPageBar($sql = "", $show_num = 9, $page_list = 1, $to_page = "", $url_other = "")
 {
     global $mysqli;
     //die('PHP_SELF:'.$_SERVER['PHP_SELF']);
     if (empty($show_num)) {
-        $show_num = 20;
+        $show_num = 9;
     }
     if (empty($page_list)) {
-        $page_list = 10;
+        $page_list = 1;
     }
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $total  = $result->num_rows;
@@ -45,15 +45,15 @@ class PageBar
     // 所有的資料數量 (rows)
     public $total;
     // 每頁顯示幾筆資料
-    public $limit = 10;
+    public $limit = 9;
     // 目前在第幾層的頁數選項？
     public $pCurrent;
     // 總共分成幾頁？
-    public $pTotal;
+    public $pTotal = 2;
     // 每一層最多有幾個頁數選項可供選擇，如：3 = {[1][2][3]}
-    public $pLimit = 3;
+    public $pLimit = 1;
     // 要使用的 URL 頁數參數名？
-    public $url_page = "g2p";
+    public $url_page = "page";
     // 會使用到的 URL 變數名，給 process_query() 過濾用的。
     public $used_query = array();
     // 目前頁數顏色
@@ -63,7 +63,7 @@ class PageBar
     public $to_page;
     //其他連結參數
     public $url_other;
-    public function PageBar($total, $limit = 10, $page_limit)
+    public function PageBar($total, $limit = 9, $page_limit = 1)
     {
         $limit = intval($limit);
         //die(var_export($limit));

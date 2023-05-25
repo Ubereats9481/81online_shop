@@ -1,23 +1,25 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-21 05:09:01
+/* Smarty version 3.1.34-dev-7, created on 2023-05-25 07:12:14
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_6469a76d60e134_60599403',
+  'unifunc' => 'content_646f0a4eade151_12161394',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b3ae00b8f1f55c260bcabbbe1d68d22a774e4cca' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\index.html',
-      1 => 1684645736,
+      1 => 1684998731,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:index_side.html' => 1,
+    'file:shop_card.html' => 1,
     'file:tool_post.html' => 1,
     'file:tool_edit.html' => 1,
     'file:show_one_post.html' => 1,
@@ -25,11 +27,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:registered.html' => 1,
     'file:login.html' => 1,
     'file:show_all_post.html' => 1,
+    'file:show_all_product.html' => 1,
+    'file:pageBar.html' => 1,
     'file:chat.html' => 1,
-    'file:index_side.html' => 1,
   ),
 ),false)) {
-function content_6469a76d60e134_60599403 (Smarty_Internal_Template $_smarty_tpl) {
+function content_646f0a4eade151_12161394 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 
 <head>
@@ -59,57 +62,79 @@ function content_6469a76d60e134_60599403 (Smarty_Internal_Template $_smarty_tpl)
 <body>
 
 	<div class='container'>
-		<div id="shop_head">
-		<a href="index.php?op=home">
-			<img src="https://imgcdn.cna.com.tw/www/WebPhotos/1024/20190120/077137361902.jpg"
-			 height="100" width="100">
-		</a>
-		<a href="chat.php">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Golden_Retriever_Buddy_0311.jpg/220px-Golden_Retriever_Buddy_0311.jpg"
-			 height="100" width="100">
-		</a>
+		<div id="shop_head" class = "col-md-16">
+			<a  href="index.php?op=home">
+			<img src="templates/web_image/home/logo.png" alt="logo"height="200" width="200">
+			</a>
+			<a href="index.php?op=home" class="home-link">
+				<img src="templates/web_image/home/home.png" alt="home" width="80">
+				<span class="home-text">Home</span>
+			</a>
+			<a href="search.php" class="home-link">
+				<img src="templates/web_image/home/search.png" alt="home" width="80">
+				<span class="home-text">Search</span>
+			</a>
+			<a href="index.php?op=rank" class="home-link">
+				<img src="templates/web_image/home/statistics.png" alt="home" width="80">
+				<span class="home-text">排行榜</span>
+			</a>
+			<a href="index.php?op=cart" class="home-link">
+				<img src="templates/web_image/home/shopping-cart.png" alt="home" width="80">
+				<span class="home-text">購物車</span>
+			</a>
+			<!-- <a href="chat.php">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Golden_Retriever_Buddy_0311.jpg/220px-Golden_Retriever_Buddy_0311.jpg" height="100" width="100">
+			</a> -->
+			<div id = "login_frame" class="col-md-3 col-sm-4"> 
+				<?php if ($_smarty_tpl->tpl_vars['op']->value != "login" && $_smarty_tpl->tpl_vars['op']->value != "registered" && $_smarty_tpl->tpl_vars['op']->value != "registered_insert" && $_smarty_tpl->tpl_vars['op']->value != "loginout") {?>
+					<?php $_smarty_tpl->_subTemplateRender('file:index_side.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+				<?php }?>
+			</div>
 		</div>
+		<?php if ($_smarty_tpl->tpl_vars['op']->value != "login" && $_smarty_tpl->tpl_vars['op']->value != "registered" && $_smarty_tpl->tpl_vars['op']->value != "registered_insert" && $_smarty_tpl->tpl_vars['op']->value != "loginout") {?>
+			<?php $_smarty_tpl->_subTemplateRender('file:shop_card.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+		<?php }?>
 		<div id="shop_main" class="row">
-			<div class="col-md-9 col-sm-8">
+			<div id = "show_shop" class="col-md-9 col-sm-8">
 				<?php if ($_smarty_tpl->tpl_vars['op']->value == "post" && isset($_smarty_tpl->tpl_vars['isuser']->value)) {?>
 					<?php $_smarty_tpl->_subTemplateRender("file:tool_post.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "edit" && isset($_smarty_tpl->tpl_vars['isuser']->value)) {?>
-				<?php $_smarty_tpl->_subTemplateRender("file:tool_edit.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+					<?php $_smarty_tpl->_subTemplateRender("file:tool_edit.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "list" && isset($_smarty_tpl->tpl_vars['isuser']->value)) {?>
-				<a href="tool.php?op=post" class="btn btn-block btn-primary">發布內容</a>
-				<!-- <a href="tool.php?op=edit" class="btn btn-block btn-success">編輯內容</a> -->
+					<a href="tool.php?op=post" class="btn btn-block btn-primary">發布內容</a>
+					<!-- <a href="tool.php?op=edit" class="btn btn-block btn-success">編輯內容</a> -->
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "display") {?>
-				<?php $_smarty_tpl->_subTemplateRender('file:show_one_post.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+					<?php $_smarty_tpl->_subTemplateRender('file:show_one_post.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "display_user") {?>
-				<?php $_smarty_tpl->_subTemplateRender('file:display_user.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+					<?php $_smarty_tpl->_subTemplateRender('file:display_user.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "registered" || $_smarty_tpl->tpl_vars['op']->value == "registered_insert") {?>
-				<?php $_smarty_tpl->_subTemplateRender('file:registered.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+					<?php $_smarty_tpl->_subTemplateRender('file:registered.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "login" || $_smarty_tpl->tpl_vars['op']->value == "loginout") {?>
-				<?php $_smarty_tpl->_subTemplateRender('file:login.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+					<?php $_smarty_tpl->_subTemplateRender('file:login.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "home") {?>
-				<?php $_smarty_tpl->_subTemplateRender('file:show_all_post.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "home" || $_smarty_tpl->tpl_vars['op']->value == "search") {?>
+					<!-- <?php $_smarty_tpl->_subTemplateRender('file:show_all_post.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?> -->
+					<?php $_smarty_tpl->_subTemplateRender('file:show_all_product.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-				共有 <?php echo $_smarty_tpl->tpl_vars['total']->value;?>
- 篇
-				<?php echo $_smarty_tpl->tpl_vars['bar']->value;?>
-
+					<?php $_smarty_tpl->_subTemplateRender('file:pageBar.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "chat") {?>
-				<?php $_smarty_tpl->_subTemplateRender('file:chat.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+					<?php $_smarty_tpl->_subTemplateRender('file:chat.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 				<?php }?>
 			</div>
-			<div class="col-md-3 col-sm-4"> 
-				<?php if ($_smarty_tpl->tpl_vars['op']->value != "login" && $_smarty_tpl->tpl_vars['op']->value != "registered" && $_smarty_tpl->tpl_vars['op']->value != "registered_insert" && $_smarty_tpl->tpl_vars['op']->value != "loginout") {?>
-				<?php $_smarty_tpl->_subTemplateRender('file:index_side.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
-				<?php }?>
-			</div>
+		</div>
+		<div class="shop_foot">
+			<hr>
+			<p class="text-center">© 2023 81線上購物</p>
 		</div>
 	</div>
 </body>

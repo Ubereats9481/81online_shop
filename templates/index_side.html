@@ -1,20 +1,18 @@
-<div class="panel panel-primary">
-	<div class="panel-heading">功能表</div>
-	<div class="panel-body">
+<div id = 'panel' class="panel panel-default">
+	<div  id ="panel-heading" class="panel-heading"></div>
+	<div id = "panel-body" class="panel-body">
 		{if $isuser}
-		<div class='alert alert-success'>Welcome! {$user_id}</div>
-		{/if}
-		<a href="index.php?op=home" class="btn btn-block btn-primary">首頁</a>
-		{if $isadmin}
-		<a href="tool.php?op=list" class="btn btn-block btn-success">內容</a>
-		{/if}
-		{if $isuser}
-		<a href="user.php?op=logout" class="btn btn-block btn-danger">登出</a>
+			<div class='alert alert-success'>Welcome! {$user_id}</div>
+			<div class='alert alert-info'>
+			<a href="user.php?op=logout" class="btn btn-block btn-danger">登出</a>
 		{/if}
 		{if !$isuser}
-					<a href="user.php?op=login" class="btn btn-block btn-info">登入</a>
-					<a href="user.php?op=registered" class="btn btn-block btn-success">註冊</a>
+			<a href="user.php?op=login" class="btn btn-block btn-info">登入</a>
+			<a href="user.php?op=registered" class="btn btn-block btn-success">註冊</a>
 		{/if}
-
+		<!-- {if $isadmin}
+		<a href="tool.php?op=list" class="btn btn-block btn-success">內容</a>
+		{/if} -->
+		
 	</div>
 </div>

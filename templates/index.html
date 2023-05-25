@@ -16,46 +16,67 @@
 <body>
 
 	<div class='container'>
-		<div id="shop_head">
-		<a href="index.php?op=home">
-			<img src="https://imgcdn.cna.com.tw/www/WebPhotos/1024/20190120/077137361902.jpg"
-			 height="100" width="100">
-		</a>
-		<a href="chat.php">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Golden_Retriever_Buddy_0311.jpg/220px-Golden_Retriever_Buddy_0311.jpg"
-			 height="100" width="100">
-		</a>
+		<div id="shop_head" class = "col-md-16">
+			<a  href="index.php?op=home">
+			<img src="templates/web_image/home/logo.png" alt="logo"height="200" width="200">
+			</a>
+			<a href="index.php?op=home" class="home-link">
+				<img src="templates/web_image/home/home.png" alt="home" width="80">
+				<span class="home-text">Home</span>
+			</a>
+			<a href="search.php" class="home-link">
+				<img src="templates/web_image/home/search.png" alt="home" width="80">
+				<span class="home-text">Search</span>
+			</a>
+			<a href="index.php?op=rank" class="home-link">
+				<img src="templates/web_image/home/statistics.png" alt="home" width="80">
+				<span class="home-text">排行榜</span>
+			</a>
+			<a href="index.php?op=cart" class="home-link">
+				<img src="templates/web_image/home/shopping-cart.png" alt="home" width="80">
+				<span class="home-text">購物車</span>
+			</a>
+			<!-- <a href="chat.php">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Golden_Retriever_Buddy_0311.jpg/220px-Golden_Retriever_Buddy_0311.jpg" height="100" width="100">
+			</a> -->
+			<div id = "login_frame" class="col-md-3 col-sm-4"> 
+				{if $op!="login"&&$op!="registered"&&$op!="registered_insert"&&$op!="loginout"}
+					{include file='index_side.html'}
+				{/if}
+			</div>
 		</div>
+		{if $op!="login"&&$op!="registered"&&$op!="registered_insert"&&$op!="loginout"}
+			{include file='shop_card.html'}
+		{/if}
 		<div id="shop_main" class="row">
-			<div class="col-md-9 col-sm-8">
+			<div id = "show_shop" class="col-md-9 col-sm-8">
 				{if $op=="post" and isset($isuser)}
 					{include file="tool_post.html"}
 				{else if $op=="edit" and isset($isuser)}
-				{include file="tool_edit.html"}
+					{include file="tool_edit.html"}
 				{else if $op=="list" and isset($isuser)}
-				<a href="tool.php?op=post" class="btn btn-block btn-primary">發布內容</a>
-				<!-- <a href="tool.php?op=edit" class="btn btn-block btn-success">編輯內容</a> -->
+					<a href="tool.php?op=post" class="btn btn-block btn-primary">發布內容</a>
+					<!-- <a href="tool.php?op=edit" class="btn btn-block btn-success">編輯內容</a> -->
 				{else if $op=="display"}
-				{include file='show_one_post.html'}
+					{include file='show_one_post.html'}
 				{else if $op=="display_user"}
-				{include file='display_user.html'}
+					{include file='display_user.html'}
 				{else if $op=="registered"||$op=="registered_insert"}
-				{include file='registered.html'}
+					{include file='registered.html'}
 				{else if $op=="login"||$op=="loginout"}
-				{include file='login.html'}
-				{else if $op=="home"}
-				{include file='show_all_post.html'}
-				共有 {$total} 篇
-				{$bar}
+					{include file='login.html'}
+				{else if $op=="home" || $op=="search"}
+					<!-- {include file='show_all_post.html'} -->
+					{include file='show_all_product.html'}
+					{include file='pageBar.html'}
 				{else if $op=="chat"}
-				{include file='chat.html'}
+					{include file='chat.html'}
 				{/if}
 			</div>
-			<div class="col-md-3 col-sm-4"> 
-				{if $op!="login"&&$op!="registered"&&$op!="registered_insert"&&$op!="loginout"}
-				{include file='index_side.html'}
-				{/if}
-			</div>
+		</div>
+		<div class="shop_foot">
+			<hr>
+			<p class="text-center">© 2023 81線上購物</p>
 		</div>
 	</div>
 </body>

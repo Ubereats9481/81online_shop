@@ -14,12 +14,7 @@
 				show_one_list($show);
 			}
 			else {
-				if ($page < 1) {
-					show_all_list(1);
-				}
-				else {
-					show_all_list($page);
-				}
+				show_all_list();
 			}
 	break;
 	}
@@ -41,31 +36,48 @@
 		unset($_SESSION['user_id']);
 	}
 
-	function show_all_list($pg){
+	// function show_all_list($pg){
+	// 	global $smarty, $mysqli;
+	// 	include_once "plugin/PageBar.php";
+	// 	$sql = "SELECT * FROM `post` WHERE `post_hide` = 0 ORDER BY `post_time` desc";
+	// 	$PageBar = getPageBar($sql, 2, 5);
+	// 	$bar = $PageBar['bar'];
+	// 	$sql = $PageBar['sql'];
+	// 	$total = $PageBar['total'];
+	// 	$result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
+	// 	$i = 0;
+	// 	while ($po = $result->fetch_assoc()) {
+	// 		$all_post[$i] = $po;
+	// 		$all_post[$i]['picture'] = get_pic($po['post_number'],'small');
+	// 		$i++;
+	// 	}
+	// 	$smarty->assign('all_post',$all_post);
+	// 	$smarty->assign('total', $total);
+	// 	$smarty->assign('bar', $bar);
+	// }
+
+	function show_all_list(){
 		global $smarty, $mysqli;
 		include_once "plugin/PageBar.php";
-		$sql = "SELECT * FROM `post` WHERE `post_hide` = 0 ORDER BY `post_time` desc";
-		$PageBar = getPageBar($sql, 2, 5);
-		$bar = $PageBar['bar'];
-		$sql = $PageBar['sql'];
-		$total = $PageBar['total'];
+		$sql = "SELECT * FROM `product` WHERE `sellType` > 0";
+		$PageBar = getPageBar($sql, 9, 1);
 		$result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
+		$total = $result->num_rows;
 		$i = 0;
-		while ($po = $result->fetch_assoc()) {
-			$all_post[$i] = $po;
-			$all_post[$i]['picture'] = get_pic($po['post_number'],'small');
+		while ($prod = $result->fetch_assoc()) {
+			$all_product[$i] = $prod;
+			$all_product[$i]['picture'] = get_pic($prod['ID'],'small');
 			$i++;
 		}
-		$smarty->assign('all_post',$all_post);
+		$smarty->assign('all_product',$all_product);
 		$smarty->assign('total', $total);
-		$smarty->assign('bar', $bar);
 	}
 
 	function show_one_list($shownum){
 		global $smarty, $mysqli,$isadmin;
 		if ($isadmin == false){
-		$sql = "UPDATE post set `post_hot`=`post_hot`+1 WHERE `post_number`={$shownum}";
-		$mysqli->query($sql);
+			$sql = "UPDATE post set `post_hot`=`post_hot`+1 WHERE `post_number`={$shownum}";
+			$mysqli->query($sql);
 		}
 		$sql = "SELECT * FROM `post` WHERE `post_number`='{$shownum}'";
 		$result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");

@@ -1,0 +1,17 @@
+<div class="row" id="prod_list">
+    {foreach from=$all_product item=product}
+        <div class="col-sm-6 col-md-4 showProduct">
+            <div class="thumbnail">
+                <a href="index.php?op=display&show={$product.ID}"><img src="{$product.picture}" alt="{$product.Name}"></a>
+                <div class="caption">
+                    <div style="height: 60px;">
+                        <h4><a href="index.php?op=display&show={$product.ID}">{$product.Name}</a></h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">剩餘數量: {$product.Remaining}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {/foreach}
+</div>
