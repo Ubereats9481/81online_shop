@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-28 07:51:45
+/* Smarty version 3.1.34-dev-7, created on 2023-05-28 08:27:11
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_6473081161acc6_48988784',
+  'unifunc' => 'content_6473105f15fc31_77948969',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b3ae00b8f1f55c260bcabbbe1d68d22a774e4cca' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\index.html',
-      1 => 1685260303,
+      1 => 1685262428,
       2 => 'file',
     ),
   ),
@@ -34,11 +34,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:search_bar.html' => 2,
     'file:show_all_discount.html' => 1,
     'file:rank.html' => 1,
+    'file:cart.html' => 1,
     'file:pay.html' => 1,
     'file:chat.html' => 1,
   ),
 ),false)) {
-function content_6473081161acc6_48988784 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6473105f15fc31_77948969 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 
 <head>
@@ -84,7 +85,7 @@ function content_6473081161acc6_48988784 (Smarty_Internal_Template $_smarty_tpl)
 				<img src="templates/web_image/home/statistics.png" alt="home" width="80">
 				<span class="home-text">排行榜</span>
 			</a>
-			<a href="index.php?op=cart" class="home-link">
+			<a href="cart.php?op=cart" class="home-link">
 				<img src="templates/web_image/home/shopping-cart.png" alt="home" width="80">
 				<span class="home-text">購物車</span>
 			</a>
@@ -174,6 +175,9 @@ function content_6473081161acc6_48988784 (Smarty_Internal_Template $_smarty_tpl)
 					</div>
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "rank") {?>
 					<?php $_smarty_tpl->_subTemplateRender('file:rank.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "cart") {?>
+					<?php $_smarty_tpl->_subTemplateRender('file:cart.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "pay") {?>
 					<?php $_smarty_tpl->_subTemplateRender('file:pay.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

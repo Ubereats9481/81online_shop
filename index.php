@@ -4,6 +4,9 @@
 	//記得過濾成INT
 	$show = isset($_REQUEST['show']) ? (int)filter_var($_REQUEST['show'],FILTER_SANITIZE_SPECIAL_CHARS) : 0;
 	$page = isset($_REQUEST['page']) ? (int)filter_var($_REQUEST['page'],FILTER_SANITIZE_SPECIAL_CHARS) : 1;
+	if(!isset($_COOKIE['cart_product'])){
+		setcookie("cart_product", "0.0", time() + (86400 * 30), "/");
+	}
 	switch ($op) {
 		case 'login':
 			header("location:user.php?op=login");

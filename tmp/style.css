@@ -1,0 +1,138 @@
+body {
+    font-family: 微軟正黑體;
+}
+
+.container {
+    /* background-color: rgb(112, 52, 52)!important; */
+    width: 100%;
+}
+
+#shop_head {
+    /* margin-bottom: 15px; */
+    display: flex;
+    background-color: #ECAB55;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200;
+}
+
+.home-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.home-text {
+    margin-top: 5px;
+    font-size: 20px;
+
+}
+
+#login_frame {
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 200;
+    width: 230;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#panel {
+    height: 150;
+    border: none;
+}
+
+#panel-heading {
+    background-color: #ECAB55;
+    border: none;
+}
+
+#panel-body {
+    background-color: #ECAB55;
+    border: none;
+}
+
+
+.shop_card {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 250;
+    left: 30;
+    width: 190px;
+    height: 500px;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: 20px 20px 60px #bebebe,
+        -20px -20px 60px #ffffff;
+}
+
+button {
+    font-size: 16px;
+    position: relative;
+    margin: auto;
+    /* padding: 1em 2.5em 1em 2.5em; */
+    width: 130;
+    height: 40;
+    border: none;
+    background: #fff;
+    transition: all 0.1s linear;
+    box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button span {
+    color: #464646;
+}
+
+button .border {
+    position: absolute;
+    border: 0.15em solid #fff;
+    transition: all 0.3s 0.08s linear;
+    top: 50%;
+    left: 50%;
+    width: 8em;
+    height: 2em;
+    transform: translate(-50%, -50%);
+}
+
+button:hover .border {
+    display: block;
+    width: 9.5em;
+    height: 4em;
+}
+
+.full-rounded {
+    border-radius: 2em;
+}
+
+#show_shop {
+    min-height: 200px;
+    position: absolute;
+    top: 250px;
+    left: 250px;
+}
+
+
+
+#shop_foot {
+    background-color: red;
+    color: #fff;
+    padding: 30px;
+    line-height: 1.5;
+    margin: 15px 0px;
+}

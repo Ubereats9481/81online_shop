@@ -1,0 +1,129 @@
+<style>
+  .mybutton {
+    width: 50px;
+    height: 40px;
+  }
+
+  .mypic {
+    width: 50px;
+    height: 40px;
+  }
+
+  .box1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr 1fr 1fr 1fr 1fr 2fr;
+    grid-auto-rows: minmax(60px, auto);
+    height: 100px;
+  }
+
+  .wrap {
+    display: grid;
+    grid-template-columns: 10fr 2fr 2fr;
+    grid-auto-rows: minmax(60px, auto);
+  }
+</style>
+
+<h2>購物車</h2>
+
+<div class="row">
+
+  <ul>
+    {foreach from=$cart_product item=product}
+    <li class="wrapper">
+      <div style="text-align: center;">
+        <input class="form-check-input" style="margin-top: 30px;" type="checkbox" id="check_{$product.ID}"
+          value="{$product.ID}" aria-label="..." onclick="cal_total();">
+      </div>
+      <div>
+        <a href="index.php?op=display&show={$product.ID}"><img src="{$product.picture}" alt="{$product.Name}"
+            style="height: 70px;"></a>
+      </div>
+      <div>
+        <p>{$product.Name}</p>
+      </div>
+      <!-- display each good price -->
+      <div style="padding-left: 25px; padding-top: 10px;">
+        <span>$</span>
+        <span id="price{$product.ID}">{$product.Price}</span>
+      </div>
+      <div style=" text-align: center; max-width: 100px;">
+        <button class="btn btn-primary" style="max-width: 50px;" onclick="dec({$product.ID})">-</button>
+      </div>
+      <div style="padding-left: 25px; padding-top: 10px;">
+        <span id="number{$product.ID}">1</span>
+      </div>
+      <div style="max-width: 100px;">
+        <button class="btn btn-primary" style="max-width: 50px;" onclick="inc({$product.ID})">+</button>
+      </div>
+      <div style="padding-left: 5px;">
+        <span>$</span>
+        <span id="totalcost{$product.ID}" class="prod_total_cost" style="width: 35px;">{$product.Price}</span>
+        <button class="btn btn-block btn-danger" onclick="del_prod({$product.ID})" style="margin-left: 30px; width: auto; max-width: 70px; display: inline;">刪除</button>
+      </div>
+    </li>
+    {/foreach}
+  </ul>
+  <div class="wrap">
+    <div></div>
+    <div style="padding-left: 25px; padding-top: 10px;">
+    </div>
+    <div>
+      <h3 id="total_price" class="text-center">$</h3>
+      <button class="btn btn-block" onclick="" style="margin-bottom: 10px; width: 100px;">結帳</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- calculate total cost -->
+<script>
+  function inc(p) {
+    var number = document.getElementById('number' + p);
+    var price = parseInt(document.getElementById('price' + p).innerHTML)
+    var totalcost = document.getElementById('totalcost' + p)
+    if (number.innerHTML > 0 && number.innerHTML < 10) {
+      number.innerHTML = parseInt(number.innerHTML) + 1;
+      totalcost.innerHTML = parseInt(number.innerHTML) * price
+    }
+    cal_total();
+  }
+
+  function dec(p) {
+    var number = document.getElementById('number' + p);
+    var price = parseInt(document.getElementById('price' + p).innerHTML)
+    var totalcost = document.getElementById('totalcost' + p)
+    if (number.innerHTML > 1) {
+      number.innerHTML = parseInt(number.innerHTML) - 1;
+      totalcost.innerHTML = parseInt(number.innerHTML) * price
+    }
+    cal_total();
+  }
+
+  function cal_total() {
+    var total = 0;
+    var total_cost = document.getElementsByClassName('prod_total_cost');
+    for (var i = 0; i < total_cost.length; i++) {
+      if (total_cost[i].parentElement.parentElement.getElementsByTagName('input')[0].checked) {
+        total += parseInt(total_cost[i].innerHTML);
+      }
+    }
+    document.getElementById('total_price').innerHTML = "NT$: " + total;
+  }
+
+  function del_prod(p) {
+    var prod = document.getElementById('check_' + p);
+    prod.parentElement.parentElement.remove();
+    cal_total();
+  }
+
+  cal_total();
+</script>

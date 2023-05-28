@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-28 06:22:26
+/* Smarty version 3.1.34-dev-7, created on 2023-05-28 09:47:17
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\show_one_post.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_6472f322b91056_84261813',
+  'unifunc' => 'content_647323252d3fb3_31789800',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '371fae2a77ce6a8ce5271b912430daf493bc7fd2' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\show_one_post.html',
-      1 => 1685254944,
+      1 => 1685267231,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6472f322b91056_84261813 (Smarty_Internal_Template $_smarty_tpl) {
+function content_647323252d3fb3_31789800 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="page">
     <br>
     <div class="col-sm-7">
@@ -90,9 +90,21 @@ function content_6472f322b91056_84261813 (Smarty_Internal_Template $_smarty_tpl)
     }
     function addToCart(){
         var num = parseInt(document.getElementById("buy_num").innerHTML);
-        var id = <?php echo $_smarty_tpl->tpl_vars['product']->value['ID'];?>
-;
-        // edit cookie
+        // Get the cookie list or array
+        var cookieList = document.cookie.split(";");
+        if(cookieList[0][0] == "P"){
+            cookieList = document.cookie.split(";")[1];
+        }
+        else{
+            cookieList = document.cookie.split(";")[0];
+        }
+        // Append the new item to the array
+        cookieList += "-" + '<?php echo $_smarty_tpl->tpl_vars['product']->value['ID'];?>
+' + "." + num;
+        // Set the cookie list or array
+        document.cookie = `cart_product=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+        document.cookie = cookieList;
+
         alert("成功加入購物車");
     }
 <?php echo '</script'; ?>

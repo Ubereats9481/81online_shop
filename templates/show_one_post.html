@@ -55,8 +55,20 @@
     }
     function addToCart(){
         var num = parseInt(document.getElementById("buy_num").innerHTML);
-        var id = {$product.ID};
-        // edit cookie
+        // Get the cookie list or array
+        var cookieList = document.cookie.split(";");
+        if(cookieList[0][0] == "P"){
+            cookieList = document.cookie.split(";")[1];
+        }
+        else{
+            cookieList = document.cookie.split(";")[0];
+        }
+        // Append the new item to the array
+        cookieList += "-" + '{$product.ID}' + "." + num;
+        // Set the cookie list or array
+        document.cookie = `cart_product=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+        document.cookie = cookieList;
+
         alert("成功加入購物車");
     }
 </script>
