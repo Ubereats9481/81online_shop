@@ -31,6 +31,10 @@
 			// login();
 		break;
 		case 'show_option':
+			if($user_number == -1) {
+				header("location:index.php?op=login");
+				exit;
+			}
 			break;
 		case 'check_order':
 			check_order();

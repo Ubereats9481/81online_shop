@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-28 14:34:21
+/* Smarty version 3.1.34-dev-7, created on 2023-05-28 15:07:34
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\cart.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_6473666d8c6d65_82454117',
+  'unifunc' => 'content_64736e369a26d8_84044192',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'db7af3bac537748b4c70a36bfa620c428c1b6a11' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\cart.html',
-      1 => 1685284460,
+      1 => 1685286453,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6473666d8c6d65_82454117 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64736e369a26d8_84044192 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
   .mybutton {
     width: 50px;
@@ -123,7 +123,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['product']->value) {
       <div style="padding-left: 5px;">
         <span>$</span>
         <span id="totalcost<?php echo $_smarty_tpl->tpl_vars['product']->value['ID'];?>
-" class="prod_total_cost" style="width: 35px;"><?php echo $_smarty_tpl->tpl_vars['product']->value['Price'];?>
+" class="prod_total_cost" style="width: 35px;"><?php echo $_smarty_tpl->tpl_vars['product']->value['Price']*$_smarty_tpl->tpl_vars['product']->value['num'];?>
 </span>
         <button class="btn btn-block btn-danger" onclick="del_prod(<?php echo $_smarty_tpl->tpl_vars['product']->value['ID'];?>
 )" style="margin-left: 30px; width: auto; max-width: 70px; display: inline;">刪除</button>
@@ -226,7 +226,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     window.location.href = "pay.php?op=pay";
 
   }
-
   cal_total();
 <?php echo '</script'; ?>
 ><?php }
