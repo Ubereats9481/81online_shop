@@ -37,7 +37,7 @@
 				<span class="home-text">購物車</span>
 			</a>
 
-			<a href="user.php?op=display_user" class="home-link">
+			<a href="user.php?op=show_option" class="home-link">
 				<img src="templates/web_image/home/people.png" alt="home" width="80">
 				<span class="home-text">會員</span>
 			</a>
@@ -51,7 +51,7 @@
 				{/if}
 			</div>
 		</div>
-		{if $op!="login"&&$op!="registered"&&$op!="registered_insert"&&$op!="loginout"&&$op!="change_pw"&&$op!="update_pw"&&$op!="display_user"&&$op!="pay"}
+		{if $op!="login"&&$op!="registered"&&$op!="registered_insert"&&$op!="loginout"&&$op!="change_pw"&&$op!="update_pw"&&$op!="display_user"&&$op!="pay"&&$op!="show_option"&&$op!="check_order"}
 			{include file='shop_card.html'}
 		{/if}
 		<div id="shop_main" class="row">
@@ -109,12 +109,17 @@
 					{include file='pay.html'}
 				{else if $op=="chat"}
 					{include file='chat.html'}
+				{else if $op=="show_option"}
+					<div style="max-width: 500px;margin: auto;">
+						{include file='show_option.html'}
+					</div>
+				{else if $op=="check_order"}
+					{include file='check_order.html'}
 				{/if}
+				<hr>
+				<p class="text-center">© 2023 81線上購物</p>
+				<p class="text-center">服務專線: 04-24517250</p>
 			</div>
-		</div>
-		<div class="shop_foot">
-			<hr>
-			<p class="text-center">© 2023 81線上購物</p>
 		</div>
 	</div>
 </body>

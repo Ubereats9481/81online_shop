@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-27 07:48:48
+/* Smarty version 3.1.34-dev-7, created on 2023-05-28 12:49:10
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\search_bar.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_6471b5e0c0a2b4_24453925',
+  'unifunc' => 'content_64734dc65fe177_42542680',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f675b5a2e1c94ec313fe5c53771de44c5a684437' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\search_bar.html',
-      1 => 1685173728,
+      1 => 1685278114,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6471b5e0c0a2b4_24453925 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64734dc65fe177_42542680 (Smarty_Internal_Template $_smarty_tpl) {
 ?><form class="form-inline" action="" method="get" style="padding-left: 70px;">
     <input id="keep_pd" type="hidden" name="pdType" value="">
     <!-- <select class="form-control" id="searchType" name="searchType" style="width: 100px;">

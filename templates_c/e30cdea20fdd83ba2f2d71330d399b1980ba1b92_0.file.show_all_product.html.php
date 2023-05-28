@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-28 07:43:51
+/* Smarty version 3.1.34-dev-7, created on 2023-05-28 12:48:28
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\show_all_product.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_647306371c2cd4_82951317',
+  'unifunc' => 'content_64734d9c1476d3_63921022',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e30cdea20fdd83ba2f2d71330d399b1980ba1b92' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\show_all_product.html',
-      1 => 1685259829,
+      1 => 1685278102,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_647306371c2cd4_82951317 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64734d9c1476d3_63921022 (Smarty_Internal_Template $_smarty_tpl) {
 ?><a id="re" hidden></a>
 <?php if ($_smarty_tpl->tpl_vars['op']->value == "search") {?>
     <?php if ($_smarty_tpl->tpl_vars['pdType']->value == "bill") {?>
@@ -59,5 +59,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['product']->value) {
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-</div><?php }
+</div>
+<?php }
 }

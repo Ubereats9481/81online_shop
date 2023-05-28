@@ -57,11 +57,11 @@
         var num = parseInt(document.getElementById("buy_num").innerHTML);
         // Get the cookie list or array
         var cookieList = document.cookie.split(";");
-        if(cookieList[0][0] == "P"){
-            cookieList = document.cookie.split(";")[1];
-        }
-        else{
-            cookieList = document.cookie.split(";")[0];
+        for (let i = 0; i < cookieList.length; i++) {
+            if(cookieList[i].includes("cart_product")){
+                cookieList = cookieList[i];
+                break;
+            }
         }
         // Append the new item to the array
         cookieList += "-" + '{$product.ID}' + "." + num;

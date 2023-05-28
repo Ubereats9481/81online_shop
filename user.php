@@ -30,6 +30,11 @@
 		case 'login':
 			// login();
 		break;
+		case 'show_option':
+			break;
+		case 'check_order':
+			check_order();
+			break;
 		case 'change_pw':
 			// change_pw($user_number);
 			break;
@@ -94,6 +99,18 @@
 
 	function registered(){
 
+	}
+
+	function check_order(){
+		global $smarty, $mysqli, $msg, $user_number;
+		$sql = "SELECT * FROM `order_pri` WHERE `user_number`='{$user_number}'";
+		$result = $mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
+		$i = 0;
+		while ($row = $result->fetch_assoc()) {
+			$order_pri[$i] = $row;
+			$i++;
+		}
+		$smarty->assign('order_pri',$order_pri);
 	}
 
 	function registered_insert(){

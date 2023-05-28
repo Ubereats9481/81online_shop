@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-28 09:47:17
+/* Smarty version 3.1.34-dev-7, created on 2023-05-28 12:53:40
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\show_one_post.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_647323252d3fb3_31789800',
+  'unifunc' => 'content_64734ed45b5555_20688101',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '371fae2a77ce6a8ce5271b912430daf493bc7fd2' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\show_one_post.html',
-      1 => 1685267231,
+      1 => 1685278418,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_647323252d3fb3_31789800 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64734ed45b5555_20688101 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="page">
     <br>
     <div class="col-sm-7">
@@ -92,11 +92,11 @@ function content_647323252d3fb3_31789800 (Smarty_Internal_Template $_smarty_tpl)
         var num = parseInt(document.getElementById("buy_num").innerHTML);
         // Get the cookie list or array
         var cookieList = document.cookie.split(";");
-        if(cookieList[0][0] == "P"){
-            cookieList = document.cookie.split(";")[1];
-        }
-        else{
-            cookieList = document.cookie.split(";")[0];
+        for (let i = 0; i < cookieList.length; i++) {
+            if(cookieList[i].includes("cart_product")){
+                cookieList = cookieList[i];
+                break;
+            }
         }
         // Append the new item to the array
         cookieList += "-" + '<?php echo $_smarty_tpl->tpl_vars['product']->value['ID'];?>

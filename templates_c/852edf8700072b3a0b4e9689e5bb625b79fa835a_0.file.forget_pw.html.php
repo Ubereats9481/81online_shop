@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-28 07:59:22
+/* Smarty version 3.1.34-dev-7, created on 2023-05-28 12:49:49
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\forget_pw.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_647309dabfc6a8_33190118',
+  'unifunc' => 'content_64734ded358f00_35034426',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '852edf8700072b3a0b4e9689e5bb625b79fa835a' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\forget_pw.html',
-      1 => 1685260761,
+      1 => 1685260765,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_647309dabfc6a8_33190118 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64734ded358f00_35034426 (Smarty_Internal_Template $_smarty_tpl) {
 ?><h2>找回密碼</h2>
 <br>
 <form action="user.php" method="" class="form-horizontal" id="login_form" role="form">

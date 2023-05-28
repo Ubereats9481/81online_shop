@@ -171,14 +171,6 @@ button:hover .border {
     position: relative;
 }
 
-#shop_foot {
-    background-color: red;
-    color: #fff;
-    padding: 30px;
-    line-height: 1.5;
-    margin: 15px 0px;
-}
-
 .show_one_info{
     
     font-size: 18px;

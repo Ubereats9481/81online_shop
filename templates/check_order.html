@@ -1,0 +1,61 @@
+<!-- 結帳頁面 -->
+<div class="pay_main">
+  <div class="row">
+    <div class="col-sm-12 col-centered">
+      <div class="buy_content">
+        <h2>查看訂單資訊</h2>
+        <ul style="list-style-type: none;">
+          <div class="row">
+            <li style="marker: none;">
+              <div class="col-sm-2 text-center">
+                <p>訂單編號</p>
+              </div>
+              <div class="col-sm-3 text-center">
+                <span>訂單目前狀態</span>
+              </div>
+              <div class="col-sm-3 text-center">
+                <span>訂單金額</span>
+              </div>
+              <div class="col-sm-3 text-center">
+                <span style="width: 35px;">訂單成立時間</span>
+              </div>
+            </li>
+          </div>
+          <br>
+          {foreach from=$order_pri item=order}
+          <div class="row">
+            <li style="marker: none;">
+              <div class="col-sm-2 text-center">
+                <p>{$order.ID}</p>
+              </div>
+              <div class="col-sm-3 text-center">
+                <p class="order_state" hidden>{$order.trans_state}</p>
+                <span class="order_state_text"></span>
+              </div>
+              <div class="col-sm-3 text-center">
+                <span>${$order.price}</span>
+              </div>
+              <div class="col-sm-3 text-center">
+                <span style="width: 35px;">{$order.create_time}</span>
+              </div>
+            </li>
+          </div>
+          {/foreach}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let order_state = document.getElementsByClassName('order_state');
+  for(let i=0; i<order_state.length; i++){
+    if(order_state[i].innerHTML == 1){
+      order_state[i].nextElementSibling.innerHTML = '訂單已成立';
+    }else if(order_state[i].innerHTML == 2){
+      order_state[i].nextElementSibling.innerHTML = '訂單已出貨';
+    }else if(order_state[i].innerHTML == 3){
+      order_state[i].nextElementSibling.innerHTML = '訂單已完成	';
+    }
+  }
+</script>

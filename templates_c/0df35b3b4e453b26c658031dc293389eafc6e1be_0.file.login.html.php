@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-28 07:52:03
+/* Smarty version 3.1.34-dev-7, created on 2023-05-28 12:49:31
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\login.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_6473082373c2c2_78838522',
+  'unifunc' => 'content_64734ddb967295_43249129',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0df35b3b4e453b26c658031dc293389eafc6e1be' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\login.html',
-      1 => 1685260315,
+      1 => 1685274739,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6473082373c2c2_78838522 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64734ddb967295_43249129 (Smarty_Internal_Template $_smarty_tpl) {
 ?><h2>登入</h2>
 <br>
 <form action="user.php" method="POST" class="form-horizontal" id="login_form" role="form">
@@ -35,7 +35,7 @@ function content_6473082373c2c2_78838522 (Smarty_Internal_Template $_smarty_tpl)
     <div class="form-group">
         <label for="captcha">驗證碼</label>
         <img src="captcha.php">
-        <input class="form-control" id="captcha" name="captcha" type="text" placeholder="請輸入看到的驗證碼" required>
+        <input class="form-control" id="captcha" name="captcha" type="text" placeholder="請輸入圖片中的驗證碼" required>
     </div>
     <div class="form-group">
         <input type="hidden" name="op" value="loginout" id="loginout">
@@ -48,6 +48,5 @@ function content_6473082373c2c2_78838522 (Smarty_Internal_Template $_smarty_tpl)
 </b>
         <?php }?>
     </div>
-
 </form><?php }
 }

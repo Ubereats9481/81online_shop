@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-28 08:27:11
+/* Smarty version 3.1.34-dev-7, created on 2023-05-28 14:45:29
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_6473105f15fc31_77948969',
+  'unifunc' => 'content_64736909c8f697_50498006',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b3ae00b8f1f55c260bcabbbe1d68d22a774e4cca' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\index.html',
-      1 => 1685262428,
+      1 => 1685285128,
       2 => 'file',
     ),
   ),
@@ -37,9 +37,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:cart.html' => 1,
     'file:pay.html' => 1,
     'file:chat.html' => 1,
+    'file:show_option.html' => 1,
+    'file:check_order.html' => 1,
   ),
 ),false)) {
-function content_6473105f15fc31_77948969 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64736909c8f697_50498006 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 
 <head>
@@ -90,7 +92,7 @@ function content_6473105f15fc31_77948969 (Smarty_Internal_Template $_smarty_tpl)
 				<span class="home-text">購物車</span>
 			</a>
 
-			<a href="user.php?op=display_user" class="home-link">
+			<a href="user.php?op=show_option" class="home-link">
 				<img src="templates/web_image/home/people.png" alt="home" width="80">
 				<span class="home-text">會員</span>
 			</a>
@@ -105,7 +107,7 @@ function content_6473105f15fc31_77948969 (Smarty_Internal_Template $_smarty_tpl)
 				<?php }?>
 			</div>
 		</div>
-		<?php if ($_smarty_tpl->tpl_vars['op']->value != "login" && $_smarty_tpl->tpl_vars['op']->value != "registered" && $_smarty_tpl->tpl_vars['op']->value != "registered_insert" && $_smarty_tpl->tpl_vars['op']->value != "loginout" && $_smarty_tpl->tpl_vars['op']->value != "change_pw" && $_smarty_tpl->tpl_vars['op']->value != "update_pw" && $_smarty_tpl->tpl_vars['op']->value != "display_user" && $_smarty_tpl->tpl_vars['op']->value != "pay") {?>
+		<?php if ($_smarty_tpl->tpl_vars['op']->value != "login" && $_smarty_tpl->tpl_vars['op']->value != "registered" && $_smarty_tpl->tpl_vars['op']->value != "registered_insert" && $_smarty_tpl->tpl_vars['op']->value != "loginout" && $_smarty_tpl->tpl_vars['op']->value != "change_pw" && $_smarty_tpl->tpl_vars['op']->value != "update_pw" && $_smarty_tpl->tpl_vars['op']->value != "display_user" && $_smarty_tpl->tpl_vars['op']->value != "pay" && $_smarty_tpl->tpl_vars['op']->value != "show_option" && $_smarty_tpl->tpl_vars['op']->value != "check_order") {?>
 			<?php $_smarty_tpl->_subTemplateRender('file:shop_card.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 		<?php }?>
@@ -185,12 +187,19 @@ function content_6473105f15fc31_77948969 (Smarty_Internal_Template $_smarty_tpl)
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "chat") {?>
 					<?php $_smarty_tpl->_subTemplateRender('file:chat.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "show_option") {?>
+					<div style="max-width: 500px;margin: auto;">
+						<?php $_smarty_tpl->_subTemplateRender('file:show_option.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+					</div>
+				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "check_order") {?>
+					<?php $_smarty_tpl->_subTemplateRender('file:check_order.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 				<?php }?>
+				<hr>
+				<p class="text-center">© 2023 81線上購物</p>
+				<p class="text-center">服務專線: 04-24517250</p>
 			</div>
-		</div>
-		<div class="shop_foot">
-			<hr>
-			<p class="text-center">© 2023 81線上購物</p>
 		</div>
 	</div>
 </body>

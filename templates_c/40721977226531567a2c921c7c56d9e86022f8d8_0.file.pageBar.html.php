@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-28 02:47:27
+/* Smarty version 3.1.34-dev-7, created on 2023-05-28 12:49:28
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\pageBar.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_6472c0bf0ea376_67074521',
+  'unifunc' => 'content_64734dd8c79a54_15988640',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '40721977226531567a2c921c7c56d9e86022f8d8' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\pageBar.html',
-      1 => 1685241904,
+      1 => 1685278160,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6472c0bf0ea376_67074521 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64734dd8c79a54_15988640 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="row" style="padding-top: 100px;">
     <div class="col-md-12">
       <div class="text-center">
