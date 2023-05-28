@@ -69,7 +69,7 @@ body {
     flex-direction: column;
     align-items: center;
     top: 250;
-    left: 30;
+    left: 50;
     width: 190px;
     height: 500px;
     border-radius: 50px;
@@ -121,13 +121,55 @@ button:hover .border {
 }
 
 #show_shop {
+    display: flex;
+    flex-direction: column;
     min-height: 200px;
     position: absolute;
     top: 250px;
-    left: 250px;
+    left: 400px;
+    width: 1300px;
+    height: auto;
+    background: lightgrey;
+    border: 3px inset white;
+    background: #e8e8e8;
+    box-shadow: inset 20px 20px 60px #c5c5c5, inset -20px -20px 60px #ffffff;
+    transition: all .5s ease-in-out;
+    border-radius: 1.5rem;
+    /* justify-content: center; */
+    /* align-items: center; */
+    font-weight: bolder;
+    color: #8a8989;
 }
 
+#prod_list {
+    display: flex;
+    position: relative;
+    left: 5%;
+    top: 5%;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-wrap: wrap;
+}
 
+.showProduct {
+    display: flex;
+    /* justify-content: center; */
+
+    width: 300px;
+    height: 300px;
+}
+.thumbnail{
+    width: 300px;
+    height: 300px;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 0;
+    box-shadow: 15px 15px 0 -2.5px #fff, 15px 15px 0 0 #000; 
+}
+
+#bar{
+    position: relative;
+}
 
 #shop_foot {
     background-color: red;
@@ -135,4 +177,43 @@ button:hover .border {
     padding: 30px;
     line-height: 1.5;
     margin: 15px 0px;
+}
+
+.show_one_info{
+    
+    font-size: 18px;
+    line-height: 20px;
+    /*background: gainsboro;*/
+    /*text-align: left;*/
+}
+.show_one_name{
+    font-family: 微軟正黑體;
+    letter-spacing: 2px;
+}
+.show_one_price {
+    font-family: 微軟正黑體;
+    text-align: left;
+    line-height: 2;
+    color: brown;
+    font-size: 30px;
+    text-decoration:underline
+}
+h5{
+    font-family: 微軟正黑體;
+    text-align: left;
+    color: crimson;
+    line-height: 2;
+    font-size: 20px;
+}
+.container {
+    /* background-color: rgb(112, 52, 52)!important; */
+    width: 100%;
+}
+#page{
+    font-family: 微軟正黑體;
+    width: 100%;
+    height: auto;
+}
+.butp{
+    display: inline-block;
 }

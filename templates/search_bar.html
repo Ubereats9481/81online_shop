@@ -1,23 +1,21 @@
-<!-- search bar on the top of the page -->
-<form class="form-inline" action="index.php" method="get">
-    <div class="row">
-        <div class="form-group col-lg-2 col-md-2 col-sm-2">
-            <select name="prodType" class="form-control">
-                <option value="" selected>類別</option>
-                <option value="dog">電腦/資訊</option>
-                <option value="cat">文學</option>
-                <option value="hamster">科學</option>
-                <option value="parrot">CD唱片</option>
-            </select>
-        </div>
-        <div class="col-lg-8 col-md-8 col-sm-8">
-            <input type="text" class="form-control" id="search" name="search" placeholder="請輸入關鍵字">
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1">
-            <button type="submit" class="btn ">
-            <img src="templates/web_image/search.jpg" width="20px">
-        </button>
-    </div>
-        
-    </div>
+<form class="form-inline" action="" method="get" style="padding-left: 70px;">
+    <input id="keep_pd" type="hidden" name="pdType" value="">
+    <!-- <select class="form-control" id="searchType" name="searchType" style="width: 100px;">
+        <option value="0">品名</option>
+        <option value="1">作者</option>
+    </select> -->
+    <input type="text" style="margin-top: 5px; margin-bottom: 3px;" class="form-control" id="keyWord" name="keyWord" placeholder="請輸入產品關鍵字">
+    <br>
+    <input type="text" class="form-control" id="minPrice" name="minPrice" placeholder="最低價">
+    <span>~</span>
+    <input type="text" class="form-control" id="maxPrice" name="maxPrice" placeholder="最高價">
+    <button type="submit" style="width: 30px;height: 30px;">
+        <img src="templates/web_image/search.png" width="20px">
+    </button>
 </form>
+
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var myParam = urlParams.get('pdType');
+    document.getElementById("keep_pd").value = myParam;
+</script>

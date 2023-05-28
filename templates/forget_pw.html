@@ -1,0 +1,17 @@
+<h2>找回密碼</h2>
+<br>
+<form action="user.php" method="" class="form-horizontal" id="login_form" role="form">
+    <div class="form-group">
+        <label for="user_id">Email</label>
+        <input type="text" class="form-control" name="user_id" id="user_id" placeholder="請輸入Email" required>
+    </div>
+    <div class="form-group">
+        <input type="hidden" name="op" value="forget_pw" id="forget_pw">
+        <a href="user.php?op=login" class="btn btn-danger" onclick="alert('已將重設密碼信寄至您的信箱，請查收')">找回密碼</a>
+        {if isset($msg)}
+            <br>
+            <b class="text-danger">●{$msg}</b>
+        {/if}
+    </div>
+
+</form>

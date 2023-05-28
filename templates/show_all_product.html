@@ -1,14 +1,22 @@
+<a id="re" hidden></a>
+{if $op=="search"}
+    {if $pdType=="bill"}
+    <h2 style="color: red; margin-left: 70px;">比爾蓋茲2022推薦書單，獻給愛看書的您!</h2>
+    <br>
+    {/if}
+{/if}
 <div class="row" id="prod_list">
     {foreach from=$all_product item=product}
         <div class="col-sm-6 col-md-4 showProduct">
             <div class="thumbnail">
-                <a href="index.php?op=display&show={$product.ID}"><img src="{$product.picture}" alt="{$product.Name}"></a>
+                <a href="index.php?op=display&show={$product.ID}"><img src="{$product.picture}" alt="{$product.Name}" style="max-width: 170px;max-height: 170px;"></a>
                 <div class="caption">
                     <div style="height: 60px;">
-                        <h4><a href="index.php?op=display&show={$product.ID}">{$product.Name}</a></h4>
+                        <h4><a href="index.php?op=display&show={$product.ID}" style="font-size: 16px;">{$product.Name}</a></h4>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">剩餘數量: {$product.Remaining}</div>
+                        <div class="col-sm-6" style="color: #ECAB55; font-size: 20px;">價格: {$product.Price}</div>
+                        <div class="col-sm-6" style="text-align: right; margin-top: 5px;">剩餘數量: {$product.Remaining}</div>
                     </div>
                 </div>
             </div>

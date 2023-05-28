@@ -8,7 +8,10 @@
 		case 'login':
 			header("location:user.php?op=login");
 			exit;
-		break;
+			break;
+		case 'rank':
+			get_rank();
+			break;
 		default :
 			if ($op=='display' && !empty($show)){
 				show_one_list($show);
@@ -16,36 +19,14 @@
 			else {
 				show_all_list();
 			}
-	break;
+			break;
 	}
 
 	require("footer.php");
 
-	// function show_all_list($pg){
-	// 	global $smarty, $mysqli;
-	// 	include_once "plugin/PageBar.php";
-	// 	$sql = "SELECT * FROM `post` WHERE `post_hide` = 0 ORDER BY `post_time` desc";
-	// 	$PageBar = getPageBar($sql, 2, 5);
-	// 	$bar = $PageBar['bar'];
-	// 	$sql = $PageBar['sql'];
-	// 	$total = $PageBar['total'];
-	// 	$result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
-	// 	$i = 0;
-	// 	while ($po = $result->fetch_assoc()) {
-	// 		$all_post[$i] = $po;
-	// 		$all_post[$i]['picture'] = get_pic($po['post_number'],'small');
-	// 		$i++;
-	// 	}
-	// 	$smarty->assign('all_post',$all_post);
-	// 	$smarty->assign('total', $total);
-	// 	$smarty->assign('bar', $bar);
-	// }
-
 	function show_all_list(){
 		global $smarty, $mysqli;
-		include_once "plugin/PageBar.php";
 		$sql = "SELECT * FROM `product` WHERE `sellType` > 0";
-		$PageBar = getPageBar($sql, 9, 1);
 		$result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
 		$total = $result->num_rows;
 		$i = 0;
@@ -60,15 +41,71 @@
 
 	function show_one_list($shownum){
 		global $smarty, $mysqli,$isadmin;
-		if ($isadmin == false){
-			$sql = "UPDATE post set `post_hot`=`post_hot`+1 WHERE `post_number`={$shownum}";
-			$mysqli->query($sql);
-		}
-		$sql = "SELECT * FROM `post` WHERE `post_number`='{$shownum}'";
+		$sql = "UPDATE product set `hot`=`hot`+1 WHERE `ID`='{$shownum}'";
+		$mysqli->query($sql);
+		$sql = "SELECT * FROM `product` WHERE `ID`='{$shownum}'";
 		$result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
-		$post = $result->fetch_assoc();
-		$post['picture'] = get_pic($post['post_number'],'big');
-		$smarty->assign('post',$post);
+		$product = $result->fetch_assoc();
+		/*$post['picture'] = get_pic($post['post_number'],'big');*/
+		$smarty->assign('product',$product);
+	}
+
+	function get_rank(){
+		global $smarty, $mysqli;
+		// hot_rank_book
+		$sql = "SELECT * FROM `product` WHERE `sellType` > 0 AND `prodType` != 'cd' ORDER BY `hot` DESC";
+		$result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
+		$i = 0;
+		while ($prod = $result->fetch_assoc()) {
+			$hot_rank_b[$i] = $prod;
+			$hot_rank_b[$i]['picture'] = get_pic($prod['ID'],'small');
+			$i++;
+			if($i >= 10){
+				break;
+			}
+		}
+		$smarty->assign('hot_rank_b',$hot_rank_b);
+		// sell_rank_book
+		$sql = "SELECT * FROM `product` WHERE `sellType` > 0 AND `prodType` != 'cd' ORDER BY `Remaining` ASC";
+		$result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
+		$i = 0;
+		while ($prod = $result->fetch_assoc()) {
+			$sell_rank_b[$i] = $prod;
+			$sell_rank_b[$i]['picture'] = get_pic($prod['ID'],'small');
+			$i++;
+			if($i >= 10){
+				break;
+			}
+		}
+		$smarty->assign('sell_rank_b',$sell_rank_b);
+		// hot_rank_cd
+		$sql = "SELECT * FROM `product` WHERE `sellType` > 0 AND `prodType` = 'cd' ORDER BY `hot` DESC";
+		echo $sql;
+		$result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
+		$i = 0;
+		while ($prod = $result->fetch_assoc()) {
+			$hot_rank_cd[$i] = $prod;
+			$hot_rank_cd[$i]['picture'] = get_pic($prod['ID'],'small');
+			$i++;
+			if($i >= 10){
+				break;
+			}
+		}
+		$smarty->assign('hot_rank_cd',$hot_rank_cd);
+		// sell_rank_cd
+		$sql = "SELECT * FROM `product` WHERE `sellType` > 0 AND `prodType` = 'cd' ORDER BY `Remaining` ASC";
+		echo $sql;
+		$result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
+		$i = 0;
+		while ($prod = $result->fetch_assoc()) {
+			$sell_rank_cd[$i] = $prod;
+			$sell_rank_cd[$i]['picture'] = get_pic($prod['ID'],'small');
+			$i++;
+			if($i >= 10){
+				break;
+			}
+		}
+		$smarty->assign('sell_rank_cd',$sell_rank_cd);
 	}
 
 ?>

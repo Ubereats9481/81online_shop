@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-24 07:12:59
+/* Smarty version 3.1.34-dev-7, created on 2023-05-27 07:48:48
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\search_bar.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_646db8fb9ef521_88289892',
+  'unifunc' => 'content_6471b5e0c0a2b4_24453925',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f675b5a2e1c94ec313fe5c53771de44c5a684437' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\search_bar.html',
-      1 => 1684912224,
+      1 => 1685173728,
       2 => 'file',
     ),
   ),
@@ -20,28 +20,28 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_646db8fb9ef521_88289892 (Smarty_Internal_Template $_smarty_tpl) {
-?><!-- search bar on the top of the page -->
-<form class="form-inline" action="index.php" method="get">
-    <div class="row">
-        <div class="form-group col-lg-2 col-md-2 col-sm-2">
-            <select name="prodType" class="form-control">
-                <option value="" selected>類別</option>
-                <option value="dog">電腦/資訊</option>
-                <option value="cat">文學</option>
-                <option value="hamster">科學</option>
-                <option value="parrot">CD唱片</option>
-            </select>
-        </div>
-        <div class="col-lg-8 col-md-8 col-sm-8">
-            <input type="text" class="form-control" id="search" name="search" placeholder="請輸入關鍵字">
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1">
-            <button type="submit" class="btn ">
-            <img src="templates/web_image/search.jpg" width="20px">
-        </button>
-    </div>
-        
-    </div>
-</form><?php }
+function content_6471b5e0c0a2b4_24453925 (Smarty_Internal_Template $_smarty_tpl) {
+?><form class="form-inline" action="" method="get" style="padding-left: 70px;">
+    <input id="keep_pd" type="hidden" name="pdType" value="">
+    <!-- <select class="form-control" id="searchType" name="searchType" style="width: 100px;">
+        <option value="0">品名</option>
+        <option value="1">作者</option>
+    </select> -->
+    <input type="text" style="margin-top: 5px; margin-bottom: 3px;" class="form-control" id="keyWord" name="keyWord" placeholder="請輸入產品關鍵字">
+    <br>
+    <input type="text" class="form-control" id="minPrice" name="minPrice" placeholder="最低價">
+    <span>~</span>
+    <input type="text" class="form-control" id="maxPrice" name="maxPrice" placeholder="最高價">
+    <button type="submit" style="width: 30px;height: 30px;">
+        <img src="templates/web_image/search.png" width="20px">
+    </button>
+</form>
+
+<?php echo '<script'; ?>
+>
+    var urlParams = new URLSearchParams(window.location.search);
+    var myParam = urlParams.get('pdType');
+    document.getElementById("keep_pd").value = myParam;
+<?php echo '</script'; ?>
+><?php }
 }

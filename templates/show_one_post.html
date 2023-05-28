@@ -1,20 +1,62 @@
-<div class="row">
-        <div class="col-sm-4">
-                <img src="{$post.picture}" alt="{$post.post_title}" class="img-thumbnail">
-        </div>
-        <div class="col-sm-8">
-            <h2>{$post.post_title}</h2>
-            熱度: {$post.post_hot}
-            {if $isadmin==true}
-            <div> 
-                <a href="tool.php?op=edit&number={$post.post_number}" class="btn btn-warning">編輯文章</a>
-                <a href="tool.php?op=delete&number={$post.post_number}" class="btn btn-danger">刪除文章</a>
-            </div>
+<div id="page">
+    <br>
+    <div class="col-sm-7">
+        <img src="upload_picture/{$product.ID}.webp" alt="商品圖片" class="img-thumbnail"><!--put a picture-->
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="show_one_name">{$product.Name}</h2>
+            <h3>作者 : {$product.Author}</h3>
+            {if $product.ISBN != ""}
+            <h3>ISBN : {$product.ISBN}</h3>
             {/if}
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <h3>content:</h3>
-        <p>{$post.post_content}</p>
+            <h3>庫存 : {$product.Remaining}</h3>
+            <h3>熱度: {$product.hot}</br></h3>
+            </br>
+            <p id="pdtype" hidden>{$product.prodType}</p>
+            <h4 class="show_one_price"><strong id="price">{$product.Price}</strong></h4>
+            <div class="butp">
+                <h3>數量:<h3>
+                <a class="btn btn-primary" onclick="num(-1)">-</a>
+                <span id="buy_num">1</span>
+                <a class="btn btn-primary" onclick="num(1)">+</a>
+                <a class="btn btn-primary" onclick="addToCart()">加入購物車</a>
+            </div>
+            <br>
+            <span style="font-size: 24;">總價格:</span>    <span id="total_price" style="font-size: 24;">{$product.Price}</span>
+            <div class="col-sm-20">
+                <strong>
+                    <h3>內容簡介:</h3>
+                </strong>
+                <p class="show_one_info">{$product.Info}</p>
+            </div>
+        </div>
     </div>
 </div>
+<script>
+    if (document.getElementById('pdtype').innerHTML == "discount"){
+        document.getElementById('price').innerHTML = "優惠價: " + Math.round(document.getElementById('price').innerHTML * 1);
+    }
+    else{
+        document.getElementById('price').innerHTML = "價格: " + document.getElementById('price').innerHTML;
+    }
+    function num(n) {
+        var num = document.getElementById("buy_num");
+        var num2 = parseInt(num.innerHTML);
+        if (num2 + n > 0) {
+            num.innerHTML = num2 + n;
+        }
+        total();
+    }
+    function total() {
+        var num = parseInt(document.getElementById("buy_num").innerHTML);
+        var price = {$product.Price};
+        document.getElementById("total_price").innerHTML = num * price;
+    }
+    function addToCart(){
+        var num = parseInt(document.getElementById("buy_num").innerHTML);
+        var id = {$product.ID};
+        // edit cookie
+        alert("成功加入購物車");
+    }
+</script>

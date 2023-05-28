@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-25 07:31:06
+/* Smarty version 3.1.34-dev-7, created on 2023-05-28 07:51:45
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_646f0eba41b4d4_43202713',
+  'unifunc' => 'content_6473081161acc6_48988784',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b3ae00b8f1f55c260bcabbbe1d68d22a774e4cca' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\index.html',
-      1 => 1684999645,
+      1 => 1685260303,
       2 => 'file',
     ),
   ),
@@ -26,13 +26,19 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:display_user.html' => 1,
     'file:registered.html' => 1,
     'file:login.html' => 1,
+    'file:change_pw.html' => 1,
+    'file:forget_pw.html' => 1,
     'file:show_all_post.html' => 1,
-    'file:show_all_product.html' => 1,
-    'file:pageBar.html' => 1,
+    'file:show_all_product.html' => 2,
+    'file:pageBar.html' => 3,
+    'file:search_bar.html' => 2,
+    'file:show_all_discount.html' => 1,
+    'file:rank.html' => 1,
+    'file:pay.html' => 1,
     'file:chat.html' => 1,
   ),
 ),false)) {
-function content_646f0eba41b4d4_43202713 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6473081161acc6_48988784 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
 
 <head>
@@ -40,7 +46,6 @@ function content_646f0eba41b4d4_43202713 (Smarty_Internal_Template $_smarty_tpl)
 	<title><?php echo $_smarty_tpl->tpl_vars['shop_name']->value;?>
 </title>
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="style.css">
 	<?php echo '<script'; ?>
  src="bootstrap/js/jquery.min.js" type="text/javascript"><?php echo '</script'; ?>
 >
@@ -57,6 +62,7 @@ function content_646f0eba41b4d4_43202713 (Smarty_Internal_Template $_smarty_tpl)
  src="jQuery_validation_engine/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"><?php echo '</script'; ?>
 >
 	<link rel="stylesheet" href="jQuery_validation_engine/css/validationEngine.jquery.css" type="text/css" />
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -68,11 +74,11 @@ function content_646f0eba41b4d4_43202713 (Smarty_Internal_Template $_smarty_tpl)
 			</a>
 			<a href="index.php?op=home" class="home-link">
 				<img src="templates/web_image/home/home.png" alt="home" width="80">
-				<span class="home-text">Home</span>
+				<span class="home-text">首頁</span>
 			</a>
-			<a href="search.php" class="home-link">
+			<a href="search.php?op=search" class="home-link">
 				<img src="templates/web_image/home/search.png" alt="home" width="80">
-				<span class="home-text">Search</span>
+				<span class="home-text">搜尋</span>
 			</a>
 			<a href="index.php?op=rank" class="home-link">
 				<img src="templates/web_image/home/statistics.png" alt="home" width="80">
@@ -82,6 +88,12 @@ function content_646f0eba41b4d4_43202713 (Smarty_Internal_Template $_smarty_tpl)
 				<img src="templates/web_image/home/shopping-cart.png" alt="home" width="80">
 				<span class="home-text">購物車</span>
 			</a>
+
+			<a href="user.php?op=display_user" class="home-link">
+				<img src="templates/web_image/home/people.png" alt="home" width="80">
+				<span class="home-text">會員</span>
+			</a>
+
 			<!-- <a href="chat.php">
 			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Golden_Retriever_Buddy_0311.jpg/220px-Golden_Retriever_Buddy_0311.jpg" height="100" width="100">
 			</a> -->
@@ -92,7 +104,7 @@ function content_646f0eba41b4d4_43202713 (Smarty_Internal_Template $_smarty_tpl)
 				<?php }?>
 			</div>
 		</div>
-		<?php if ($_smarty_tpl->tpl_vars['op']->value != "login" && $_smarty_tpl->tpl_vars['op']->value != "registered" && $_smarty_tpl->tpl_vars['op']->value != "registered_insert" && $_smarty_tpl->tpl_vars['op']->value != "loginout") {?>
+		<?php if ($_smarty_tpl->tpl_vars['op']->value != "login" && $_smarty_tpl->tpl_vars['op']->value != "registered" && $_smarty_tpl->tpl_vars['op']->value != "registered_insert" && $_smarty_tpl->tpl_vars['op']->value != "loginout" && $_smarty_tpl->tpl_vars['op']->value != "change_pw" && $_smarty_tpl->tpl_vars['op']->value != "update_pw" && $_smarty_tpl->tpl_vars['op']->value != "display_user" && $_smarty_tpl->tpl_vars['op']->value != "pay") {?>
 			<?php $_smarty_tpl->_subTemplateRender('file:shop_card.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 		<?php }?>
@@ -111,20 +123,60 @@ function content_646f0eba41b4d4_43202713 (Smarty_Internal_Template $_smarty_tpl)
 					<?php $_smarty_tpl->_subTemplateRender('file:show_one_post.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "display_user") {?>
+				<div style="max-width: 500px;margin: auto;">
 					<?php $_smarty_tpl->_subTemplateRender('file:display_user.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+				</div>	
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "registered" || $_smarty_tpl->tpl_vars['op']->value == "registered_insert") {?>
-					<?php $_smarty_tpl->_subTemplateRender('file:registered.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+					<div style="max-width: 500px;margin: auto;">
+						<?php $_smarty_tpl->_subTemplateRender('file:registered.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+					</div>	
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "login" || $_smarty_tpl->tpl_vars['op']->value == "loginout") {?>
-					<?php $_smarty_tpl->_subTemplateRender('file:login.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+					<div style="max-width: 500px;margin: auto;">
+						<?php $_smarty_tpl->_subTemplateRender('file:login.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "home" || $_smarty_tpl->tpl_vars['op']->value == "search") {?>
+					</div>
+				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "change_pw" || $_smarty_tpl->tpl_vars['op']->value == "update_pw") {?>
+					<div style="max-width: 500px;margin: auto;">
+						<?php $_smarty_tpl->_subTemplateRender('file:change_pw.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+					</div>
+				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "forget_pw") {?>
+					<?php $_smarty_tpl->_subTemplateRender('file:forget_pw.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "home") {?>
 					<!-- <?php $_smarty_tpl->_subTemplateRender('file:show_all_post.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?> -->
 					<?php $_smarty_tpl->_subTemplateRender('file:show_all_product.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-					<?php $_smarty_tpl->_subTemplateRender('file:pageBar.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+					<div id ='bar'>
+						<?php $_smarty_tpl->_subTemplateRender('file:pageBar.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+					</div>
+				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "search") {?>
+					<?php $_smarty_tpl->_subTemplateRender("file:search_bar.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+					<?php $_smarty_tpl->_subTemplateRender('file:show_all_product.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+					<div id ='bar'>
+						<?php $_smarty_tpl->_subTemplateRender('file:pageBar.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+					</div>
+				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "discount") {?>
+					<?php $_smarty_tpl->_subTemplateRender("file:search_bar.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+					<?php $_smarty_tpl->_subTemplateRender('file:show_all_discount.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+					<div id ='bar'>
+						<?php $_smarty_tpl->_subTemplateRender('file:pageBar.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+					</div>
+				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "rank") {?>
+					<?php $_smarty_tpl->_subTemplateRender('file:rank.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "pay") {?>
+					<?php $_smarty_tpl->_subTemplateRender('file:pay.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 				<?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "chat") {?>
 					<?php $_smarty_tpl->_subTemplateRender('file:chat.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
