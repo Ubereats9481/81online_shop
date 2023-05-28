@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-28 15:07:34
+/* Smarty version 3.1.34-dev-7, created on 2023-05-28 15:53:38
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\cart.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_64736e369a26d8_84044192',
+  'unifunc' => 'content_64737902c679c7_27963669',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'db7af3bac537748b4c70a36bfa620c428c1b6a11' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\cart.html',
-      1 => 1685286453,
+      1 => 1685289217,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64736e369a26d8_84044192 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64737902c679c7_27963669 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
   .mybutton {
     width: 50px;
@@ -218,7 +218,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     var pay_list = "pay_list=0.0";
     for(var i = 1; i < cookieList.length; i++){
         if(document.getElementById('check_' + cookieList[i].split('.')[0]).checked){
-          pay_list += "-" + cookieList[i][0] + "." + document.getElementById('number' + cookieList[i].split('.')[0]).innerHTML;
+          pay_list += "-" + document.getElementById('check_' + cookieList[i].split('.')[0]).value + "." + document.getElementById('number' + cookieList[i].split('.')[0]).innerHTML;
         }
     }
     document.cookie = `pay_list=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
