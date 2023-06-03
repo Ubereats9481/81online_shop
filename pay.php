@@ -43,7 +43,7 @@
         $carry = isset($_REQUEST['carry']) ? filter_var($_REQUEST['carry'],FILTER_SANITIZE_SPECIAL_CHARS) : '';
         $company = isset($_REQUEST['company']) ? filter_var($_REQUEST['company'],FILTER_SANITIZE_SPECIAL_CHARS) : '';
         $price_pay = isset($_REQUEST['price_pay']) ? filter_var($_REQUEST['price_pay'],FILTER_SANITIZE_SPECIAL_CHARS) : 0;
-        $sql = "INSERT INTO `order_pri` (`user_number`,`buyer_name`,`phone`,`address`,`carry`,`tax_id`,`price`) VALUES ('{$_SESSION['user_number']}','{$_REQUEST['buyer_name']}','{$_REQUEST['phone']}','{$_REQUEST['address']}','{$carry}','{$company}','{$price_pay}')";
+        $sql = "INSERT INTO `order_pri` (`user_number`,`buyer_name`,`phone`,`address`,`carrier`,`tax_id`,`price`) VALUES ('{$_SESSION['user_number']}','{$_REQUEST['buyer_name']}','{$_REQUEST['phone']}','{$_REQUEST['address']}','{$carry}','{$company}','{$price_pay}')";
         $mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
         // 建立訂單商品
         $order_id = $mysqli->insert_id;
