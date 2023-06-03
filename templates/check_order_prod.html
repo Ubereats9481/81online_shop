@@ -1,0 +1,52 @@
+<!-- 查看訂單商品頁面 -->
+<div class="buy_content">
+  <h2>訂單內容</h2>
+  <ul style="list-style-type: none;">
+    <div class="row">
+      <li style="marker: none;">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-4 text-center">
+          <p>商品名稱</p>
+        </div>
+        <!-- display each good price -->
+        <div class="col-sm-2 text-center">
+          <span>商品單價</span>
+        </div>
+        <div class="col-sm-1 text-center">
+          <span>數量</span>
+        </div>
+        <div class="col-sm-2 text-center">
+          <span style="width: 35px;">總金額</span>
+        </div>
+      </li>
+    </div>
+    {foreach from=$prod_list item=product}
+    <div class="row">
+      <li>
+        <div class="col-sm-3">
+          <a href="index.php?op=display&show={$product.ID}"><img src="{$product.picture}" alt="{$product.Name}"
+              style="height: 100px;"></a>
+        </div>
+        <div class="col-sm-4 text-center" style="margin-top: 30px;">
+          <p>{$product.Name}</p>
+        </div>
+        <!-- display each good price -->
+        <div class="col-sm-2 text-center" style="margin-top: 30px;">
+          <span>$</span>
+          <span id="price{$product.ID}">{$product.Price}</span>
+        </div>
+        <div class="col-sm-1 text-center" style="margin-top: 30px;">
+          <span id="number{$product.ID}">{$product.num}</span>
+        </div>
+        <div class="col-sm-2 text-center" style="margin-top: 30px;">
+          <span>$</span>
+          <span id="totalcost{$product.ID}" class="prod_total_cost" style="width: 35px;">{$product.Price *
+            $product.num}</span>
+        </div>
+      </li>
+    </div>
+    {/foreach}
+  </ul>
+
+</div>

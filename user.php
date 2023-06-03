@@ -3,6 +3,7 @@
 
 	$op = isset($_REQUEST['op']) ? filter_var($_REQUEST['op'],FILTER_SANITIZE_SPECIAL_CHARS) : '';
 	$user_number = isset($_SESSION['user_number']) ? (int)filter_var($_SESSION['user_number'],FILTER_SANITIZE_SPECIAL_CHARS) : -1;
+	$order_id = isset($_REQUEST['order_id']) ? (int)filter_var($_REQUEST['order_id'],FILTER_SANITIZE_SPECIAL_CHARS) : -1;
 	$birth = isset($_REQUEST['birth']) ? filter_var($_REQUEST['birth'],FILTER_SANITIZE_SPECIAL_CHARS) : '';
 	$email = isset($_REQUEST['email']) ? filter_var($_REQUEST['email'],FILTER_SANITIZE_SPECIAL_CHARS) : '';
 	$phone = isset($_REQUEST['phone']) ? filter_var($_REQUEST['phone'],FILTER_SANITIZE_SPECIAL_CHARS) : '';
@@ -46,6 +47,9 @@
 			break;
 		case 'update_pw':
 			change_pw($user_number);
+			break;
+		case 'check_order_prod':
+			check_order_prod();
 			break;
 		case 'loginout':
 			loginout();
@@ -227,6 +231,32 @@
 			return;
 		}
 		return;
+	}
+
+	function check_order_prod(){
+		global $mysqli,$smarty,$order_id;
+		$sql = "SELECT * FROM `order_pri` WHERE `ID`='{$order_id}'";
+		$result = $mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
+		$order = $result->fetch_assoc();
+		$sql = "SELECT * FROM `order_product` WHERE `order_id`='{$order_id}'";
+		$result = $mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
+		$i = 0;
+		while ($row = $result->fetch_assoc()) {
+			$order_prod[$i] = $row;
+			$i++;
+		}
+		for ($i = 0; $i < count($order_prod); $i++) {
+            $data = $order_prod[$i];
+            $sql = "SELECT * FROM `product` WHERE `ID`='{$data['prod_id']}'";
+            $result=$mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
+            $product = $result->fetch_assoc();
+            $product['ID'] = $data['prod_id'];
+            $product['picture'] = get_pic($product['ID'],'small');
+            $product['num'] = $data['amount'];
+            $prod_list[$i] = $product;
+        }
+		$smarty->assign('order',$order);
+		$smarty->assign('prod_list',$prod_list);
 	}
 
 ?>

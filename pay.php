@@ -19,7 +19,7 @@
 
 	function pay(){
         if(!isset($_COOKIE['pay_list']) || !isset($_SESSION['user_id'])){
-            echo "<><script>alert('請先登入');location.href='index.php?op=home';</script>";
+            echo "<><script>alert('未選取商品或未登入');location.href='index.php?op=home';</script>";
             exit;
         }
 		global $smarty, $mysqli;
@@ -39,11 +39,22 @@
 
     function pay_out(){
         global $smarty, $mysqli;
+        // 建立訂單
         $carry = isset($_REQUEST['carry']) ? filter_var($_REQUEST['carry'],FILTER_SANITIZE_SPECIAL_CHARS) : '';
         $company = isset($_REQUEST['company']) ? filter_var($_REQUEST['company'],FILTER_SANITIZE_SPECIAL_CHARS) : '';
         $price_pay = isset($_REQUEST['price_pay']) ? filter_var($_REQUEST['price_pay'],FILTER_SANITIZE_SPECIAL_CHARS) : 0;
         $sql = "INSERT INTO `order_pri` (`user_number`,`buyer_name`,`phone`,`address`,`carry`,`tax_id`,`price`) VALUES ('{$_SESSION['user_number']}','{$_REQUEST['buyer_name']}','{$_REQUEST['phone']}','{$_REQUEST['address']}','{$carry}','{$company}','{$price_pay}')";
         $mysqli->query($sql) or die("在查詢資料庫時發生錯誤");
+        // 建立訂單商品
+        $order_id = $mysqli->insert_id;
+        $all_pay_product = explode("-", $_COOKIE['pay_list']);
+        for ($i = 1; $i < count($all_pay_product); $i++) {
+            $data = explode(".", $all_pay_product[$i]);
+            $product['ID'] = $data[0];
+            $product['num'] = $data[1];
+            $sql = "INSERT INTO `order_product` (`order_id`,`prod_id`,`amount`) VALUES ('{$order_id}','{$product['ID']}','{$product['num']}')";
+            $mysqli->query($sql) or die($sql."在查詢資料庫時發生錯誤");
+        }
         echo "<script>alert('訂單已送出');location.href='index.php?op=home';</script>";
     }
 

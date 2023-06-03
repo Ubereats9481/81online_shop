@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2023-05-28 14:53:10
+/* Smarty version 3.1.34-dev-7, created on 2023-06-03 08:13:53
   from 'C:\Users\allen\Documents\Github\81online_shop\templates\check_order.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_64736ad6860871_64003957',
+  'unifunc' => 'content_647af641ed9855_75240881',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3c1a3876545ea88a6f7a60ff0fe8dfee4623d08d' => 
     array (
       0 => 'C:\\Users\\allen\\Documents\\Github\\81online_shop\\templates\\check_order.html',
-      1 => 1685285589,
+      1 => 1685779370,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64736ad6860871_64003957 (Smarty_Internal_Template $_smarty_tpl) {
+function content_647af641ed9855_75240881 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 結帳頁面 -->
 <div class="pay_main">
   <div class="row">
@@ -53,8 +53,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['order']->value) {
           <div class="row">
             <li style="marker: none;">
               <div class="col-sm-2 text-center">
-                <p><?php echo $_smarty_tpl->tpl_vars['order']->value['ID'];?>
-</p>
+                <a href="user.php?op=check_order_prod&order_id=<?php echo $_smarty_tpl->tpl_vars['order']->value['ID'];?>
+"><?php echo $_smarty_tpl->tpl_vars['order']->value['ID'];?>
+</a>
               </div>
               <div class="col-sm-3 text-center">
                 <p class="order_state" hidden><?php echo $_smarty_tpl->tpl_vars['order']->value['trans_state'];?>

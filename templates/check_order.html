@@ -26,7 +26,7 @@
           <div class="row">
             <li style="marker: none;">
               <div class="col-sm-2 text-center">
-                <p>{$order.ID}</p>
+                <a href="user.php?op=check_order_prod&order_id={$order.ID}">{$order.ID}</a>
               </div>
               <div class="col-sm-3 text-center">
                 <p class="order_state" hidden>{$order.trans_state}</p>
